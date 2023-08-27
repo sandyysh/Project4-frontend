@@ -29,7 +29,8 @@ const Auth = () => {
 
         const { username, password, phoneNumber, avatarURL } = form;
 
-        const URL = 'http://localhost:3002/auth';
+        // const URL = 'http://localhost:3002/auth';
+        const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
         // const URL = 'https://medical-pager.herokuapp.com/auth';
         
         const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
