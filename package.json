@@ -13,7 +13,8 @@
     "stream-chat": "^8.10.1",
     "stream-chat-react": "^10.8.8",
     "universal-cookie": "^4.0.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@babel/plugin-proposal-private-property-in-object":""
   },
 
 
