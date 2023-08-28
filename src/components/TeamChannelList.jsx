@@ -42,6 +42,7 @@ const TeamChannelList = ({ setToggleContainer, children, error = false, loading,
             {children}
         </div>
     )
+
 }
 
 export default TeamChannelList
