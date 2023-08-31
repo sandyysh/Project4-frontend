@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
+import App from '../App';
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
 import HospitalIcon from '../assets/hospital.png'
@@ -38,6 +39,10 @@ const customChannelMessagingFilter = (channels) => {
     return channels.filter((channel) => channel.type === 'messaging');
 }
 
+const customChannelGlobalFilter = (channels) => {
+    return channels.filter((channel) => channel.type === 'livestream');
+}
+
 const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
     const { client } = useChatContext();
 
@@ -65,6 +70,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                     filters={filters}
                     channelRenderFilterFn={customChannelTeamFilter}
                     List={(listProps) => (
+                    
                         <TeamChannelList 
                             {...listProps}
                             type="team"
@@ -108,7 +114,31 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                             type="messaging"
                         />
                     )}
-                />
+                />                        
+                <ChannelList 
+                    filters={filters}
+                    channelRenderFilterFn={customChannelGlobalFilter}
+                    List={(listProps) => (
+                        <TeamChannelList 
+                            {...listProps}
+                            type="livestream"
+                            isCreating={isCreating}
+                            setIsCreating={setIsCreating}
+                            setCreateType={setCreateType} 
+                            setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
+                        />
+                    )}
+                    Preview={(previewProps) => (
+                        <TeamChannelPreview 
+                            {...previewProps}
+                            setIsCreating={setIsCreating}
+                            setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
+                            type="livestream"
+                        />
+                    )}
+                />    
             </div>
         </>
     );

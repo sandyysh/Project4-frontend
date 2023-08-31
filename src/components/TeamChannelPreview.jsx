@@ -11,6 +11,7 @@ const TeamChannelPreview = ({ setActiveChannel, setIsCreating, setIsEditing, set
     );
 
 
+
     const DirectPreview = () => {
         const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID);
     
@@ -43,7 +44,9 @@ const TeamChannelPreview = ({ setActiveChannel, setIsCreating, setIsEditing, set
             }
         }}
         >
-            {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
+            {type === 'team' ? (
+             <ChannelPreview /> ) : type === 'livestream' ? (
+             <ChannelPreview /> ) : <DirectPreview />}
         </div>
     );
 }

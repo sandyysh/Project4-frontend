@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
-
 import signinImage from '../assets/signup.jpg';
 
 const cookies = new Cookies();
@@ -19,18 +18,18 @@ const initialState = {
 const Auth = () => {
     const [form, setForm] = useState(initialState);
     const [isSignup, setIsSignup] = useState(true);
-
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
 
         const { username, password, phoneNumber, avatarURL } = form;
 
-        // const URL = 'http://localhost:3002/auth';
-        const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
+         const URL = 'http://localhost:3002/auth';
+       //const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
         // const URL = 'https://medical-pager.herokuapp.com/auth';
         
         const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
@@ -43,6 +42,10 @@ const Auth = () => {
         cookies.set('userId', userId);
 
         if(isSignup) {
+
+
+            
+            
             cookies.set('phoneNumber', phoneNumber);
             cookies.set('avatarURL', avatarURL);
             cookies.set('hashedPassword', hashedPassword);
