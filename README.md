@@ -1,71 +1,31 @@
-# Getting Started with Create React App
+# GA_Project4: Medical Pager App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to Project
+[https://project4-frontend-xi.vercel.app/
+](url)
 
-## Available Scripts
+## Description 
+A communication tool for medical professionals.
 
-In the project directory, you can run:
+## Features
+- Real-time chat rooms: Medical professionals can create and join chat rooms to discuss specific medical topics. 
+- Threaded conversations [1-1] and [Many participants]: Messages are organized into threads, making it easy to follow conversations.
+- Hospital-wide announcements: Healthcare institutions can send important announcements to all staff members via the hospital's main thread.
+- Offline notifications: The app will send you an SMS notification if you receive a message while you are offline.
 
-### `npm start`
+## Getting Started - For Developer(s)
+- Clone the repositories from GitHub. [github.com/sandyysh/Project4-frontend] [github.com/sandyysh/backend]
+- Run Npm install
+- Sign up for accounts with Getstream.io and Twilio.  
+- Create a .env file for backend with the following environmental variables: STREAM_API_KEY, STREAM_API_SECRET, STREAM_API_ID, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN and TWILIO_MESSAGING_SERVICE_SID. 
+- Run the frontend server using npm start; backend using nodemon server.js 
+- Contributions are welcomed, please fork the repo and submit a pull request. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+- GetStream API: To power the real-time chat functionality.
+- React: For building the frontend user interface.
+- Node.js: For the backend server and application logic.
+- Twilio: For SMS notification functionality.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Project4-frontend
