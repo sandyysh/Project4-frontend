@@ -23,8 +23,7 @@ A communication tool for medical professionals.
 
 ## Technologies
 - GetStream API: To power the real-time chat functionality.
-- React: For building the frontend user interface.
-- Node.js: For the backend server and application logic.
+- React
 - Twilio: For SMS notification functionality.
 
 ## Screenshots
