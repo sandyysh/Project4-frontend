@@ -13,7 +13,7 @@ A communication tool for medical professionals.
 - Hospital-wide announcements: Healthcare institutions can send important announcements to all staff members via the hospital's main thread.
 - Offline notifications: The app will send you an SMS notification if you receive a message while you are offline.
 
-## Getting Started - For Developer(s)
+## Getting Started 
 - Clone the repositories from GitHub. [github.com/sandyysh/Project4-frontend] [github.com/sandyysh/backend]
 - Run Npm install
 - Sign up for accounts with Getstream.io and Twilio.  
