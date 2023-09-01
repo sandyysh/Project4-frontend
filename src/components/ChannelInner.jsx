@@ -1,16 +1,42 @@
 import React, { useState } from 'react';
 import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext } from 'stream-chat-react';
-
+import axios from 'axios';
 import { ChannelInfo } from '../assets';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const GiphyContext = React.createContext({});
 
 const ChannelInner = ({ setIsEditing }) => {
-  const [giphyState, setGiphyState] = useState(false);
-  const { sendMessage } = useChannelActionContext();
   
+const [giphyState, setGiphyState] = useState(false);
+  const { sendMessage } = useChannelActionContext();
+  const { channel } = useChannelStateContext(); 
+  const members = channel.state.members;
+  
+
+  
+  const sendTwilioNotification = async (message) => {
+    try {
+      console.log('sending twilio notification')
+     
+
+      const response = await axios.post('http://localhost:3002/send-twilio-notification', {
+        message,
+        type: "message.new",
+        user: {id: cookies.get('userId'), fullName: cookies.get('fullName')}, // Assuming you have the sender information
+        members,
+      });
+      console.log(response.data); // 'Message sending process completed.'
+    } catch (error) {
+      console.error('Error sending Twilio notification:', error);
+    }
+  };
+
   const overrideSubmitHandler = (message) => {
-    console.log("override submit")
+    console.log(message);
+    
     let updatedMessage = {
       attachments: message.attachments,
       mentioned_users: message.mentioned_users,
@@ -25,6 +51,8 @@ const ChannelInner = ({ setIsEditing }) => {
     
     if (sendMessage) {
       sendMessage(updatedMessage);
+      console.log('Calling sendTwilioNotification...');
+      sendTwilioNotification(updatedMessage.text);
       setGiphyState(false);
     }
   };

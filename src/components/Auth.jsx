@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -18,6 +17,8 @@ const initialState = {
 const Auth = () => {
     const [form, setForm] = useState(initialState);
     const [isSignup, setIsSignup] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(!!cookies.get('token'));
+    
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
@@ -32,9 +33,13 @@ const Auth = () => {
        //const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
         // const URL = 'https://medical-pager.herokuapp.com/auth';
         
+        const headers = {
+            Authorization: `Bearer ${cookies.get('token')}`,
+            };
+
         const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
             username, password, fullName: form.fullName, phoneNumber, avatarURL,
-        });
+        }, {headers});
 
         cookies.set('token', token);
         cookies.set('username', username);
@@ -42,15 +47,12 @@ const Auth = () => {
         cookies.set('userId', userId);
 
         if(isSignup) {
-
-
-            
-            
             cookies.set('phoneNumber', phoneNumber);
             cookies.set('avatarURL', avatarURL);
             cookies.set('hashedPassword', hashedPassword);
         }
 
+        setIsAuthenticated(true)
         window.location.reload();
     }
 
