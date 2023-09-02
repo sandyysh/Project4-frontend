@@ -22,12 +22,27 @@ const Auth = () => {
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-
+    const handlePhoneValidate = event => {
+        event.target.value = event.target.value.replace(/\D/g, '');
+        handleChange(event);
+    
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-
-        const { username, password, phoneNumber, avatarURL } = form;
+        const { username, password, phoneNumber, avatarURL, confirmPassword} = form;
+        if(confirmPassword){
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+        }
+        if (phoneNumber){ 
+            if (phoneNumber.length !== 8){
+                alert("Phone number must be 8 digits");
+                return;
+            }
+        }
 
          const URL = 'http://localhost:3002/auth';
        //const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
@@ -75,6 +90,7 @@ const Auth = () => {
                                     placeholder="Full Name"
                                     onChange={handleChange}
                                     required
+                                    minLength={5}
                                 />
                             </div>
                         )}
@@ -95,7 +111,7 @@ const Auth = () => {
                                     name="phoneNumber" 
                                     type="text"
                                     placeholder="Phone Number"
-                                    onChange={handleChange}
+                                    onChange={handlePhoneValidate}
                                     required
                                 />
                             </div>
@@ -120,6 +136,7 @@ const Auth = () => {
                                     placeholder="Password"
                                     onChange={handleChange}
                                     required
+                                    minLength={8}
                                 />
                             </div>
                         {isSignup && (
@@ -131,6 +148,7 @@ const Auth = () => {
                                     placeholder="Confirm Password"
                                     onChange={handleChange}
                                     required
+                                    minLength={8}
                                 />
                             </div>
                             )}
