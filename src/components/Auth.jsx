@@ -44,9 +44,8 @@ const Auth = () => {
             }
         }
 
-         const URL = 'http://localhost:3002/auth';
-       //const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
-        // const URL = 'https://medical-pager.herokuapp.com/auth';
+        //  const URL = 'http://localhost:3002/auth';
+       const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
         
         const headers = {
             Authorization: `Bearer ${cookies.get('token')}`,
