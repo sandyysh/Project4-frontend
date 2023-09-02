@@ -22,7 +22,7 @@ const [giphyState, setGiphyState] = useState(false);
       console.log('sending twilio notification')
      
 
-      const response = await axios.post('https://project4-frontend-xi.vercel.app/send-twilio-notification', {
+      const response = await axios.post('https://tender-bathing-suit-seal.cyclic.cloud/send-twilio-notification', {
     
         type: "message.new",
         user: {id: cookies.get('userId'), fullName: cookies.get('fullName')}, // Assuming you have the sender information
