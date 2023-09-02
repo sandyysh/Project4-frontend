@@ -45,7 +45,7 @@ const Auth = () => {
         }
 
         //  const URL = 'http://localhost:3002/auth';
-       const URL = 'https://tender-bathing-suit-seal.cyclic.cloud/auth'
+       const URL = 'https://project4-frontend-xi.vercel.app/auth'
         
         const headers = {
             Authorization: `Bearer ${cookies.get('token')}`,
